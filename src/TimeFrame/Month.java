@@ -5,10 +5,10 @@ public class Month extends TimeFrame {
         super(v);
     }
 
-    public byte getLower() {
+    public Byte getLower() {
         return 1;
     }
-    public byte getUpper() {
+    public Byte getUpper() {
         return 12;
     }
 }

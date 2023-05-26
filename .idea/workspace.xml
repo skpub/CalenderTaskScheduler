@@ -5,22 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe3da886-3b45-4d1c-876a-4cae0c0565c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CalenderTaskScheduler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CalenderTaskScheduler.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/Boundary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/Day.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/Hour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/Min.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/Month.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/TimeFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimeFrame/Weekday.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TimePeriod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TimeFrame/CyclicNext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TimeFrameDate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/Boundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/Boundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/Day.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/Hour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/Hour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/Min.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/Min.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/Month.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/Month.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/TimeFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/TimeFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimeFrame/Weekday.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimeFrame/Weekday.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TimePeriod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TimePeriod.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -47,16 +42,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

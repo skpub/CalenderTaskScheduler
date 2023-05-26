@@ -1,10 +1,10 @@
 package TimeFrame;
 
-public abstract class TimeFrame implements Boundary {
+public abstract class TimeFrame implements Boundary<Byte>, Comparable<Byte> {
     Byte frame;
 
-    public abstract byte getLower();
-    public abstract byte getUpper();
+    public abstract Byte getLower();
+    public abstract Byte getUpper();
     public boolean validate() {
         return getLower() <= frame && frame >= getUpper();
     }
@@ -16,5 +16,9 @@ public abstract class TimeFrame implements Boundary {
                 "expected " + getLower() + "-" + getUpper() + ", but you passed " + v
             );
         }
+    }
+
+    public int compareTo(Byte value) {
+        return frame.compareTo(value);
     }
 }

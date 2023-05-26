@@ -1,7 +1,7 @@
 package TimeFrame;
 
 public interface Boundary<T> {
-    byte getLower();
-    byte getUpper();
+    T getLower();
+    T getUpper();
     boolean validate();
 }

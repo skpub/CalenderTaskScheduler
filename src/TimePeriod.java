@@ -3,11 +3,15 @@ import TimeFrame.*;
 import java.util.*;
 
 public class TimePeriod {
-    Optional<TreeSet<Min>>        optional_mins;
-    Optional<TreeSet<Hour>>       optional_hours;
-    Optional<TreeSet<Day>>        optional_days;
-    Optional<TreeSet<Month>>      optional_months;
-    Optional<TreeSet<Weekday>>    optional_weekdays;
+    Optional<TreeSet<Min>>      optional_mins;
+    Optional<TreeSet<Hour>>     optional_hours;
+    Optional<TreeSet<Day>>      optional_days;
+    Optional<TreeSet<Month>>    optional_months;
+    Optional<TreeSet<Weekday>>  optional_weekdays;
+    TimeFrameDate               next_date;
+
+    public void set_next_date() {
+    }
 
     public TimePeriod(String str) throws IllegalArgumentException {
         List<String> settings = new ArrayList<>(Arrays.asList(str.split(" ")));

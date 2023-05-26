@@ -5,10 +5,10 @@ public class Weekday extends TimeFrame {
         super(v);
     }
 
-    public byte getLower() {
+    public Byte getLower() {
         return 0;
     }
-    public byte getUpper() {
+    public Byte getUpper() {
         return 6;
     }
 }
