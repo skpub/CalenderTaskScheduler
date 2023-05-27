@@ -1,4 +1,4 @@
-package TimeFrame;
+package Calender.TimeFrame;
 
 public interface Boundary<T> {
     T getLower();

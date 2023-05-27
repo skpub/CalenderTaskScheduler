@@ -1,19 +1,21 @@
-import TimeFrame.*;
+package Calender;
+
+import Calender.TimeFrame.*;
 
 import java.util.*;
 
-public class TimePeriod {
+public class Calender {
     Optional<TreeSet<Min>>      optional_mins;
     Optional<TreeSet<Hour>>     optional_hours;
     Optional<TreeSet<Day>>      optional_days;
     Optional<TreeSet<Month>>    optional_months;
     Optional<TreeSet<Weekday>>  optional_weekdays;
-    TimeFrameDate               next_date;
+    TimeFrameDate next_date;
 
     public void set_next_date() {
     }
 
-    public TimePeriod(String str) throws IllegalArgumentException {
+    public Calender (String str) throws IllegalArgumentException {
         List<String> settings = new ArrayList<>(Arrays.asList(str.split(" ")));
         if (settings.size() != 5) {
             throw new IllegalArgumentException("Expected 5 elements when divided by space, but "

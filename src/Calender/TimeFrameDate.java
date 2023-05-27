@@ -1,6 +1,8 @@
-import TimeFrame.*;
+package Calender;
 
-public class TimeFrameDate implements CyclicNext {
+import Calender.TimeFrame.*;
+
+public class TimeFrameDate {
     Month month;
     Day day;
     Weekday weekday;

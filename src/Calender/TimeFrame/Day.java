@@ -1,7 +1,7 @@
-package TimeFrame;
+package Calender.TimeFrame;
 
-public class Weekday extends TimeFrame {
-    public Weekday(byte v) {
+public class Day extends TimeFrame {
+    public Day(byte v) {
         super(v);
     }
 
@@ -9,6 +9,7 @@ public class Weekday extends TimeFrame {
         return 0;
     }
     public Byte getUpper() {
-        return 6;
+        return 31;
     }
+
 }
