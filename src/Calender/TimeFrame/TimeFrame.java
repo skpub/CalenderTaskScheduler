@@ -20,6 +20,10 @@ public abstract class TimeFrame implements Boundary<Byte>, Comparable<TimeFrame>
         }
     }
 
+    public TimeFrame() {
+        this.frame = this.getLower();
+    }
+
     public int compareTo(TimeFrame value) {
         return this.frame.compareTo(value.frame);
     }

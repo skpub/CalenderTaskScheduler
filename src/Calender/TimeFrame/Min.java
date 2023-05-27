@@ -4,6 +4,9 @@ public class Min extends TimeFrame {
     public Min(byte v) {
         super(v);
     }
+    public Min() {
+        super();
+    }
 
     public Byte getLower() {
         return 0;

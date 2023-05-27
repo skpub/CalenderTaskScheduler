@@ -4,6 +4,9 @@ public class Hour extends TimeFrame {
     public Hour(byte v) {
         super(v);
     }
+    public Hour() {
+        super();
+    }
 
     public Byte getLower() {
         return 0;
