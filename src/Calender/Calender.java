@@ -10,10 +10,6 @@ public class Calender {
     Optional<TreeSet<Day>>      optional_days;
     Optional<TreeSet<Month>>    optional_months;
     Optional<TreeSet<Weekday>>  optional_weekdays;
-    TimeFrameDate next_date;
-
-    public void set_next_date() {
-    }
 
     public Calender (String str) throws IllegalArgumentException {
         List<String> settings = new ArrayList<>(Arrays.asList(str.split(" ")));
