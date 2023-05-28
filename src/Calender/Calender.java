@@ -10,10 +10,6 @@ public class Calender {
     Optional<TreeSet<Day>>      optional_days;
     Optional<TreeSet<Month>>    optional_months;
     Optional<TreeSet<Weekday>>  optional_weekdays;
-    TimeFrameDate next_date;
-
-    public void set_next_date() {
-    }
 
     public Calender (String str) throws IllegalArgumentException {
         List<String> settings = new ArrayList<>(Arrays.asList(str.split(" ")));
@@ -102,8 +98,8 @@ public class Calender {
         StringBuilder temp = new StringBuilder();
         optional_mins.ifPresentOrElse(
             slots -> {
-                for (Min slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Min slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -113,8 +109,8 @@ public class Calender {
 
         optional_hours.ifPresentOrElse(
             slots -> {
-                for (Hour slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Hour slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -124,8 +120,8 @@ public class Calender {
 
         optional_days.ifPresentOrElse(
             slots -> {
-                for (Day slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Day slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -135,8 +131,8 @@ public class Calender {
 
         optional_months.ifPresentOrElse(
             slots -> {
-                for (Month slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Month slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -146,8 +142,8 @@ public class Calender {
 
         optional_weekdays.ifPresentOrElse(
             slots -> {
-                for (Weekday slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Weekday slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
