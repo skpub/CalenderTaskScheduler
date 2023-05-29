@@ -27,6 +27,11 @@ public class FilteredDateIterator implements CarryAwareIterator<ChronoLocalDate>
 
     @Override
     public boolean next() {
+        if (this.filter_d.isEmpty() && this.filter_w.isEmpty()) {
+            boolean carry = iter.getDayOfMonth() > iter.plusDays(1).getDayOfMonth();
+            iter = iter.plusDays(1);
+            return carry;
+        }
         return false;
     }
 }

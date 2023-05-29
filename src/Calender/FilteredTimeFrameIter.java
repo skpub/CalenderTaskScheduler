@@ -8,16 +8,11 @@ import java.util.TreeSet;
 // An Iterator implementation for Min and Hour.
 public class FilteredTimeFrameIter<T extends TimeFrame> implements CarryAwareIterator<TimeFrame> {
     Optional<TreeSet<T>> filter;
-    Min iter;
+    T iter;
 
     public FilteredTimeFrameIter(T iter, Optional<TreeSet<T>> filter) {
         this.filter = filter;
-        this.iter = new Min(iter.get());
-    }
-
-    public FilteredTimeFrameIter(byte value, Optional<TreeSet<T>> filter) {
-        this.filter = filter;
-        this.iter = new Min(value);
+        this.iter = iter;
     }
 
     public void setToMinimum() {
