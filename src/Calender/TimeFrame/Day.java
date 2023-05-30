@@ -66,7 +66,7 @@ public class Day extends TimeFrame {
     }
 
     public Byte getLower() {
-        return 0;
+        return 1;
     }
     public Byte getUpper() {
         return 31;
