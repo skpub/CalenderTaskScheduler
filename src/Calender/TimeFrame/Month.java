@@ -1,14 +1,17 @@
-package TimeFrame;
+package Calender.TimeFrame;
 
 public class Month extends TimeFrame {
     public Month(byte v) {
         super(v);
     }
+    public Month() {
+        super();
+    }
 
-    public byte getLower() {
+    public Byte getLower() {
         return 1;
     }
-    public byte getUpper() {
+    public Byte getUpper() {
         return 12;
     }
 }

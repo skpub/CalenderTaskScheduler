@@ -1,15 +1,17 @@
-import TimeFrame.*;
+package Calender;
+
+import Calender.TimeFrame.*;
 
 import java.util.*;
 
-public class TimePeriod {
-    Optional<TreeSet<Min>>        optional_mins;
-    Optional<TreeSet<Hour>>       optional_hours;
-    Optional<TreeSet<Day>>        optional_days;
-    Optional<TreeSet<Month>>      optional_months;
-    Optional<TreeSet<Weekday>>    optional_weekdays;
+public class Calender {
+    Optional<TreeSet<Min>>      optional_mins;
+    Optional<TreeSet<Hour>>     optional_hours;
+    Optional<TreeSet<Day>>      optional_days;
+    Optional<TreeSet<Month>>    optional_months;
+    Optional<TreeSet<Weekday>>  optional_weekdays;
 
-    public TimePeriod(String str) throws IllegalArgumentException {
+    public Calender (String str) throws IllegalArgumentException {
         List<String> settings = new ArrayList<>(Arrays.asList(str.split(" ")));
         if (settings.size() != 5) {
             throw new IllegalArgumentException("Expected 5 elements when divided by space, but "
@@ -96,8 +98,8 @@ public class TimePeriod {
         StringBuilder temp = new StringBuilder();
         optional_mins.ifPresentOrElse(
             slots -> {
-                for (Min slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Min slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -107,8 +109,8 @@ public class TimePeriod {
 
         optional_hours.ifPresentOrElse(
             slots -> {
-                for (Hour slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Hour slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -118,8 +120,8 @@ public class TimePeriod {
 
         optional_days.ifPresentOrElse(
             slots -> {
-                for (Day slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Day slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -129,8 +131,8 @@ public class TimePeriod {
 
         optional_months.ifPresentOrElse(
             slots -> {
-                for (Month slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Month slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
@@ -140,8 +142,8 @@ public class TimePeriod {
 
         optional_weekdays.ifPresentOrElse(
             slots -> {
-                for (Weekday slot: slots.headSet(slots.last())) temp.append(slot).append(",");
-                temp.append(slots.last());
+                for (Weekday slot: slots.headSet(slots.last())) temp.append(slot.get()).append(",");
+                temp.append(slots.last().get());
             },
             () -> {
                 temp.append("*");
