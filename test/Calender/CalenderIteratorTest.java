@@ -71,7 +71,7 @@ class CalenderIteratorTest {
 
         System.out.print("    ");
         for (int i = 0; i < 32; i++) {
-            if (date_iter1.next()) System.out.print("!carry!>");
+            if (date_iter1.nextDay()) System.out.print("!carry!>");
             System.out.print(date_iter1.show() + " ");
         }
         System.out.println();
@@ -84,7 +84,7 @@ class CalenderIteratorTest {
 
         System.out.print("    ");
         for (int i = 0; i < 30; i++) {
-            if (date_iter2.next()) System.out.print("!carry!>");
+            if (date_iter2.nextDay()) System.out.print("!carry!>");
             System.out.print(date_iter2.show() + " ");
         }
         System.out.println();
@@ -99,7 +99,7 @@ class CalenderIteratorTest {
 
         System.out.print("    ");
         for (int i = 0; i < 20; i++) {
-            if (date_iter3.next()) System.out.print("!carry!>");
+            if (date_iter3.nextDay()) System.out.print("!carry!>");
             System.out.print(date_iter3.show() + " ");
         }
         System.out.println();
@@ -114,9 +114,44 @@ class CalenderIteratorTest {
 
         System.out.print("    ");
         for (int i = 0; i < 50; i++) {
-            if (date_iter4.next())  System.out.print("!carry!>");
+            if (date_iter4.nextDay())  System.out.print("!carry!>");
             System.out.print(date_iter4.show() + " ");
         }
         System.out.println();
+    }
+
+    @Test
+    public void filteredDateTimeIteratorTest() {
+        System.out.println("FilteredDateTimeIteratorTest");
+        System.out.println("General data.");
+        Calender cal = new Calender("0,59 0,23 1,31 1,12 0,6");
+        Calender daily = new Calender("0 0 * * *");
+        Calender weekly = new Calender("0 0 * * 0");
+        FilteredDateTimeIterator iter = new FilteredDateTimeIterator(cal);
+        for (int i = 0; i < 150; i++) {
+            System.out.println(iter.show());
+            iter.next();
+        }
+
+        System.out.println("Empty data.");
+        FilteredDateTimeIterator iter2 = new FilteredDateTimeIterator(empty_calender);
+        for (int i = 0; i < 150; i++) {
+            System.out.println(iter2.show());
+            iter2.next();
+        }
+
+        System.out.println("Daily Task.");
+        FilteredDateTimeIterator iter3 = new FilteredDateTimeIterator(daily);
+        for (int i = 0; i < 150; i++) {
+            System.out.println(iter3.show());
+            iter3.next();
+        }
+
+        System.out.println("Weekly Task.");
+        FilteredDateTimeIterator iter4 = new FilteredDateTimeIterator(weekly);
+        for (int i = 0; i < 150; i++) {
+            System.out.println(iter4.show());
+            iter4.next();
+        }
     }
 }

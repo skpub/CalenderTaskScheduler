@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe3da886-3b45-4d1c-876a-4cae0c0565c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Calender/Pair.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Calender/FilteredDateTimeIterator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calender/TimeFrame/Day.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calender/TimeFrame/Day.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FilteredDateIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calender/FilteredDateIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calender/CalenderIterator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calender/FilteredDateIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calender/FilteredDateIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calender/FilteredTimeFrameIter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calender/FilteredTimeFrameIter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Calender/TimeFrameDate.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/test/Calender/CalenderIteratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Calender/CalenderIteratorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

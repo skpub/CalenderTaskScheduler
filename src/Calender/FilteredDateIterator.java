@@ -10,7 +10,7 @@ import java.time.chrono.ChronoLocalDate;
 import java.util.Optional;
 import java.util.TreeSet;
 
-public class FilteredDateIterator implements CarryAwareIterator<ChronoLocalDate> {
+public class FilteredDateIterator {
     Optional<TreeSet<Month>> filter_m;
     Optional<TreeSet<Weekday>> filter_w;
     Optional<TreeSet<Day>> filter_d;
@@ -85,8 +85,7 @@ public class FilteredDateIterator implements CarryAwareIterator<ChronoLocalDate>
         return new Pair<>(true, ret);
     }
 
-    @Override
-    public boolean next() {
+    public boolean nextDay() {
         if (this.filter_d.isEmpty() && this.filter_w.isEmpty()) {
             boolean carry = iter.getDayOfMonth() > iter.plusDays(1).getDayOfMonth();
             iter = iter.plusDays(1);
@@ -115,6 +114,38 @@ public class FilteredDateIterator implements CarryAwareIterator<ChronoLocalDate>
         } else {
             iter = day_candidate.second();
             return day_candidate.first();
+        }
+    }
+
+    public boolean isSpecificMonth() {
+        return filter_m.map(months -> months
+            .contains(new Month((byte)iter.getMonthValue())))
+            .orElse(true);
+    }
+
+    public boolean isSpecificDay() {
+        boolean is_specific_day = filter_d.map(day -> day
+            .contains(new Day((byte)iter.getDayOfMonth())))
+            .orElse(true);
+
+        boolean is_specific_week = filter_w.map(week -> week
+            .contains(new Weekday((byte)transJ2C(iter.getDayOfWeek().getValue()))))
+            .orElse(true);
+
+        return is_specific_day && is_specific_week;
+    }
+
+    public void nextMonth() {
+        if (filter_m.isEmpty()) {
+            iter = iter.plusMonths(1);
+        } else {
+            for (Month candidate: filter_m.get()) {
+                if (candidate.get() > iter.getMonthValue()) {
+                    iter = LocalDate.of(iter.getYear(), candidate.get(), 1);
+                    return;
+                }
+            }
+            iter = LocalDate.of(iter.getYear() + 1, filter_m.get().first().get(), 1);
         }
     }
 

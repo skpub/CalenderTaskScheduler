@@ -35,6 +35,12 @@ public class FilteredTimeFrameIter<T extends TimeFrame> implements CarryAwareIte
         }
     }
 
+    public boolean isSpecificTimeFrame() {
+        return filter.map(t -> t
+            .contains(iter))
+            .orElse(true);
+    }
+
     public String show() {
         return String.valueOf(iter.get());
     }
