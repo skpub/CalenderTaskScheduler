@@ -3,7 +3,9 @@ package Calender;
 import Calender.TimeFrame.*;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class FilteredDateTimeIterator {
     private FilteredTimeFrameIter<Min> min_iter;
@@ -11,31 +13,35 @@ public class FilteredDateTimeIterator {
     private FilteredDateIterator date_iter;
     private Calender calender;
 
-    FilteredDateTimeIterator(Calender calender) {
+    public FilteredDateTimeIterator (Calender calender) {
         this.calender = calender;
         LocalDateTime now = LocalDateTime.now();
         min_iter = new FilteredTimeFrameIter<Min>(
-            new Min((byte)now.getMinute()), calender.optional_mins);
+            new Min((byte)now.getMinute()), calender.mins.get());
         hour_iter = new FilteredTimeFrameIter<Hour>(
-            new Hour((byte)now.getHour()), calender.optional_hours);
+            new Hour((byte)now.getHour()), calender.hours.get());
         date_iter = new FilteredDateIterator(
             now.toLocalDate(),
-            calender.optional_months,
-            calender.optional_weekdays,
-            calender.optional_days);
+            calender.months.get(),
+            calender.weekdays.get(),
+            calender.days.get());
 
-        if (!date_iter.isSpecificMonth())
+        boolean carry = false;
+        if (carry = carry | !date_iter.isSpecificMonth())
             date_iter.nextMonth();
-        if (!date_iter.isSpecificDay()) {
+        if (carry = carry | !date_iter.isSpecificDay()) {
             date_iter.nextDay();
             hour_iter.setToMinimum();
         }
-        if (!hour_iter.isSpecificTimeFrame()) {
+        if (carry = carry | !hour_iter.isSpecificTimeFrame()) {
             hour_iter.next();
             min_iter.setToMinimum();
         }
-        if (!min_iter.isSpecificTimeFrame())
+        if (carry = carry | !min_iter.isSpecificTimeFrame())
             min_iter.next();
+
+        if (!carry)
+            this.next();
     }
 
     public void next() {
@@ -69,5 +75,18 @@ public class FilteredDateTimeIterator {
             date_iter.iter.getDayOfMonth(),
             hour_iter.iter.get(),
             min_iter.iter.get()));
+    }
+
+    public LocalDateTime getTime() {
+        return LocalDateTime.of(
+            date_iter.iter.getYear(),
+            date_iter.iter.getMonthValue(),
+            date_iter.iter.getDayOfMonth(),
+            hour_iter.iter.get(),
+            min_iter.iter.get());
+    }
+
+    public Date getDate() {
+        return Date.from(getTime().atZone(ZoneId.systemDefault()).toInstant());
     }
 }

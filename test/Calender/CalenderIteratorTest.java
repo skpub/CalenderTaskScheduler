@@ -11,12 +11,14 @@ class CalenderIteratorTest {
     private Calender general_calender = new Calender("0,15,30,45 0,6,12,18 1,15,30 * *");
     private Calender general_calender_w = new Calender("0,15,30,45 0,6,12,18 * * 0,4,6");
     private Calender general_calender_wd = new Calender("* * 1,10,20,30 * 0,2,4");
+
+
     @Test
     public void minTest() {
         System.out.println("MIN TEST: " + LocalDateTime.now());
 
         FilteredTimeFrameIter<Min> min_iter1 =
-            new FilteredTimeFrameIter<Min>(new Min((byte)0), empty_calender.optional_mins);
+            new FilteredTimeFrameIter<Min>(new Min((byte)0), empty_calender.mins.get());
 
         System.out.print("    ");
         for (int i = 0; i < 61; i++) {
@@ -26,7 +28,7 @@ class CalenderIteratorTest {
         System.out.println();
 
         FilteredTimeFrameIter<Min> min_iter2 =
-            new FilteredTimeFrameIter<Min>(new Min((byte)0), general_calender.optional_mins);
+            new FilteredTimeFrameIter<Min>(new Min((byte)0), general_calender.mins.get());
 
         System.out.print("    ");
         for (int i = 0; i < 25; i++) {
@@ -41,7 +43,7 @@ class CalenderIteratorTest {
         System.out.println("HOUR TEST: " + LocalDateTime.now());
 
         FilteredTimeFrameIter<Hour> hour_iter1 =
-            new FilteredTimeFrameIter<Hour>(new Hour((byte)0), empty_calender.optional_hours);
+            new FilteredTimeFrameIter<Hour>(new Hour((byte)0), empty_calender.hours.get());
 
         System.out.print("    ");
         for (int i = 0; i < 25; i++) {
@@ -51,7 +53,7 @@ class CalenderIteratorTest {
         System.out.println();
 
         FilteredTimeFrameIter<Hour> hour_iter2 =
-            new FilteredTimeFrameIter<Hour>(new Hour((byte)0), general_calender.optional_hours);
+            new FilteredTimeFrameIter<Hour>(new Hour((byte)0), general_calender.hours.get());
 
         System.out.print("    ");
         for (int i = 0; i < 25; i++) {
@@ -65,9 +67,9 @@ class CalenderIteratorTest {
         System.out.println("DAY OF MONTH TEST: " + LocalDateTime.now());
         FilteredDateIterator date_iter1 = new FilteredDateIterator(
             LocalDate.now(),
-            empty_calender.optional_months,
-            empty_calender.optional_weekdays,
-            empty_calender.optional_days);
+            empty_calender.months.get(),
+            empty_calender.weekdays.get(),
+            empty_calender.days.get());
 
         System.out.print("    ");
         for (int i = 0; i < 32; i++) {
@@ -78,9 +80,9 @@ class CalenderIteratorTest {
 
         FilteredDateIterator date_iter2 = new FilteredDateIterator(
             LocalDate.now(),
-            general_calender.optional_months,
-            general_calender.optional_weekdays,
-            general_calender.optional_days);
+            general_calender.months.get(),
+            general_calender.weekdays.get(),
+            general_calender.days.get());
 
         System.out.print("    ");
         for (int i = 0; i < 30; i++) {
@@ -93,9 +95,9 @@ class CalenderIteratorTest {
 
         FilteredDateIterator date_iter3 = new FilteredDateIterator(
             LocalDate.now(),
-            general_calender_w.optional_months,
-            general_calender_w.optional_weekdays,
-            general_calender_w.optional_days);
+            general_calender_w.months.get(),
+            general_calender_w.weekdays.get(),
+            general_calender_w.days.get());
 
         System.out.print("    ");
         for (int i = 0; i < 20; i++) {
@@ -108,9 +110,9 @@ class CalenderIteratorTest {
 
         FilteredDateIterator date_iter4= new FilteredDateIterator(
             LocalDate.now(),
-            general_calender_wd.optional_months,
-            general_calender_wd.optional_weekdays,
-            general_calender_wd.optional_days);
+            general_calender_wd.months.get(),
+            general_calender_wd.weekdays.get(),
+            general_calender_wd.days.get());
 
         System.out.print("    ");
         for (int i = 0; i < 50; i++) {
