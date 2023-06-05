@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CalenderTaskScheduler" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe3da886-3b45-4d1c-876a-4cae0c0565c9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Calender/FilteredDateTimeIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calender/CalenderIterator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calender/FilteredDateIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calender/FilteredDateIterator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calender/FilteredTimeFrameIter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Calender/FilteredTimeFrameIter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Calender/TimeFrameDate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/Calender/CalenderIteratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/Calender/CalenderIteratorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="fe3da886-3b45-4d1c-876a-4cae0c0565c9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,9 +18,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,6 +71,7 @@
       <recent name="Calender" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="Calender.TimeFrame" />
       <recent name="Calender" />
     </key>
   </component>

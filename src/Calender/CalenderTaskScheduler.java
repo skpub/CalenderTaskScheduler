@@ -1,37 +1,31 @@
 package Calender;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class CalenderTaskScheduler {
-    private CalenderTask calender_task;
-    private FilteredDateTimeIterator iter;
-    private Timer timer;
-    CalenderTaskScheduler(Calender calender, Runnable task) {
-        this.timer = new Timer();
-        this.iter = new FilteredDateTimeIterator(calender);
-        this.timer.schedule(new CalenderTask (timer, task, this.iter), iter.getDate());
-        calender_task = new CalenderTask(timer, task, new FilteredDateTimeIterator(calender));
-    }
-}
-
-class CalenderTask extends TimerTask {
-    Timer timer;
-    Runnable task;
+public class CalenderTaskScheduler implements Runnable {
     FilteredDateTimeIterator iter;
+    Runnable task;
 
-    CalenderTask(Timer timer, Runnable task, FilteredDateTimeIterator iter) {
-        this.timer = timer;
-        this.iter = iter;
+    public CalenderTaskScheduler(Calender calender, Runnable task) {
+        this.iter = new FilteredDateTimeIterator(calender);
         this.task = task;
     }
-    @Override
-    public void run () {
-        timer.schedule(new TimerTask() {
-            public void run() {
-                task.run();
+    public void run() {
+        while(true) {
+            LocalDateTime next_exec_time = iter.getTime();
+            LocalDateTime now = LocalDateTime.now();
+            Duration next_sub_now;
+            while ((next_sub_now = Duration.between(now, next_exec_time)).toMillis() < 0) ;
+            try {
+                Thread.sleep(next_sub_now.toMillis());
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-        }, iter.getDate());
-        iter.next();
+            task.run();
+            iter.next();
+        }
     }
 }
