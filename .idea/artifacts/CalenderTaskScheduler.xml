@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="CalenderTaskScheduler">
-    <output-path>$PROJECT_DIR$/out/artifacts/CalenderTaskScheduler</output-path>
-    <root id="archive" name="CalenderTaskScheduler.jar">
-      <element id="module-output" name="CalenderTaskScheduler" />
-      <element id="module-source" name="CalenderTaskScheduler" />
-    </root>
-  </artifact>
-</component>
