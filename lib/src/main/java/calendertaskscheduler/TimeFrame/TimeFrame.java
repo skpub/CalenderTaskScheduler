@@ -18,6 +18,14 @@ public abstract class TimeFrame implements Boundary<Byte>, Comparable<TimeFrame>
         }
     }
 
+    static <T extends TimeFrame> T getInstance(Class<T> clazz) {
+        try {
+            return clazz.newInstance();
+        } catch (ReflectiveOperationException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public byte get() {
         return frame;
     }

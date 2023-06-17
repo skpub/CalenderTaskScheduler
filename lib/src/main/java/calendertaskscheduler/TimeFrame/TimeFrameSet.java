@@ -14,31 +14,31 @@ public class TimeFrameSet<T extends TimeFrame> {
             this.field = Optional.empty();
         else {
             field = Optional.of(new TreeSet<T>());
-            Arrays.stream(str.split(","))
-                .forEach(serial -> {
-                    List<String> values = Arrays.stream(serial.split("-")).toList();
-                    if (values.size() == 2) {
-                        for (int i = Integer.parseInt(values.get(0)); i <= Integer.parseInt(values.get(1)); i++) {
-                            T temp;
-                            try {
-                                temp = clazz.newInstance();
-                            } catch (ReflectiveOperationException e) {
-                                throw new RuntimeException(e);
+            if (str.contains("/")) {
+                int per = Integer.valueOf(str.split("/")[1]);
+                T temp = TimeFrame.getInstance(clazz);
+                for (int i = temp.getLower(); i < temp.getUpper(); i=i+per) {
+                    temp = TimeFrame.getInstance(clazz);
+                    temp.set((byte)i);
+                    this.add(temp);
+                }
+            } else {
+                Arrays.stream(str.split(","))
+                    .forEach(serial -> {
+                        List<String> values = Arrays.stream(serial.split("-")).toList();
+                        if (values.size() == 2) {
+                            for (int i = Integer.parseInt(values.get(0)); i <= Integer.parseInt(values.get(1)); i++) {
+                                T temp = TimeFrame.getInstance(clazz);
+                                temp.set((byte)i);
+                                this.add(temp);
                             }
-                            temp.set((byte)i);
+                        } else {
+                            T temp = TimeFrame.getInstance(clazz);
+                            temp.set(Byte.parseByte(values.get(0)));
                             this.add(temp);
                         }
-                    } else {
-                        T temp;
-                        try {
-                            temp = clazz.newInstance();
-                        } catch (ReflectiveOperationException e) {
-                            throw new RuntimeException(e);
-                        }
-                        temp.set(Byte.parseByte(values.get(0)));
-                        this.add(temp);
-                    }
-                });
+                    });
+            }
         }
     }
 

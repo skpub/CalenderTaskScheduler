@@ -13,5 +13,8 @@ class TimeFrameSetTest {
 
         var tfs_general = new TimeFrameSet<Min>("2-6", Min.class);
         System.out.println(tfs_general.show());
+
+        var tfs_per3 = new TimeFrameSet<Min>("/3", Min.class);
+        System.out.println(tfs_per3.show());
     }
 }
